@@ -34,6 +34,7 @@ import {
   LinkByCodeCallback,
   LoadingScreenCallback,
   StatusFindCallback,
+  PageExposedCallback,
 } from '../model';
 import { SocketState } from '../model/enum';
 import { ScrapQrcode } from '../model/qrcode';
@@ -59,6 +60,7 @@ export class HostLayer {
   public statusFind?: StatusFindCallback = null;
   public onLoadingScreen?: LoadingScreenCallback = null;
   public catchLinkCode?: LinkByCodeCallback = null;
+  public pageExposed?: PageExposedCallback = null;
 
   constructor(public page: Page, session?: string, options?: CreateConfig) {
     this.session = session;
@@ -148,6 +150,7 @@ export class HostLayer {
     }).catch(() => null);
     this.checkInChat();
     this.checkQrCode();
+    this.exposePage();
   }
 
   public async start() {
@@ -596,5 +599,9 @@ export class HostLayer {
       (value) => WPP.conn.joinWebBeta(value),
       value
     );
+  }
+
+  private exposePage() {
+    this.pageExposed(this.page);
   }
 }
