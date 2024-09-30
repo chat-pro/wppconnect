@@ -1,3 +1,19 @@
+## <small>1.34.2 (2024-09-27)</small>
+
+- build(deps): update dependency puppeteer to ^23.4.1 (#2349) ([fe16137](https://github.com/wppconnect-team/wppconnect/commit/fe16137)), closes [#2349](https://github.com/wppconnect-team/wppconnect/issues/2349)
+
+## <small>1.34.1 (2024-09-09)</small>
+
+- chore: rollback typedoc ([077ff9b](https://github.com/wppconnect-team/wppconnect/commit/077ff9b))
+
+## 1.34.0 (2024-09-09)
+
+- fix(deps): update dependency @wppconnect/wa-js to ^3.10.1 (#2336) ([cc29475](https://github.com/wppconnect-team/wppconnect/commit/cc29475)), closes [#2336](https://github.com/wppconnect-team/wppconnect/issues/2336)
+
+## <small>1.33.1 (2024-08-30)</small>
+
+- fix: Fixed client.openChatAt (close #2293) ([68e011c](https://github.com/wppconnect-team/wppconnect/commit/68e011c)), closes [#2293](https://github.com/wppconnect-team/wppconnect/issues/2293)
+
 ## 1.33.0 (2024-08-05)
 
 - feat: Added client.closeChat function (close #2271) (#2290) ([539e5d9](https://github.com/wppconnect-team/wppconnect/commit/539e5d9)), closes [#2271](https://github.com/wppconnect-team/wppconnect/issues/2271) [#2290](https://github.com/wppconnect-team/wppconnect/issues/2290)
