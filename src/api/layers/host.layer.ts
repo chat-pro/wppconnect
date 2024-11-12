@@ -165,6 +165,7 @@ export class HostLayer {
       null,
       false,
       this.options.whatsappVersion,
+      this.options.proxy,
       this.log.bind(this)
     );
 
@@ -486,7 +487,7 @@ export class HostLayer {
   }
 
   /**
-   * Retrieves the connecction state
+   * Retrieves the connection state
    * @category Host
    */
   public async getConnectionState(): Promise<SocketState> {
