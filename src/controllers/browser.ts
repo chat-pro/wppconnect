@@ -183,8 +183,14 @@ export async function onLoadingScreen(
         let window2: any = window;
 
         let progressBar = window2.getElementByXpath(selectors.PROGRESS);
+        let progressBarNewTheme = window2.getElementByXpath(
+          selectors.PROGRESS_NEW_THEME
+        );
         let progressMessage = window2.getElementByXpath(
           selectors.PROGRESS_MESSAGE
+        );
+        let progressMessageNewTheme = window2.getElementByXpath(
+          selectors.PROGRESS_MESSAGE_NEW_THEME
         );
 
         if (progressBar) {
@@ -195,6 +201,19 @@ export async function onLoadingScreen(
             window2.loadingScreen(progressBar.value, progressMessage.innerText);
             this.lastPercent = progressBar.value;
             this.lastPercentMessage = progressMessage.innerText;
+          }
+        } else if (progressBarNewTheme) {
+          if (
+            this.lastPercent !== progressBarNewTheme.value ||
+            this.lastPercentMessage !== progressMessageNewTheme.innerText
+          ) {
+            const progressMsg =
+              progressMessageNewTheme.innerText != 'WhatsApp'
+                ? progressMessageNewTheme.innerText
+                : '';
+            window2.loadingScreen(progressBarNewTheme.value, progressMsg);
+            this.lastPercent = progressBarNewTheme.value;
+            this.lastPercentMessage = progressMsg;
           }
         }
       });
@@ -208,7 +227,9 @@ export async function onLoadingScreen(
     },
     {
       PROGRESS: "//*[@id='app']/div/div/div[2]/progress",
+      PROGRESS_NEW_THEME: "//*[@id='app']/div/div/div[3]/progress",
       PROGRESS_MESSAGE: "//*[@id='app']/div/div/div[3]",
+      PROGRESS_MESSAGE_NEW_THEME: "//*[@id='app']/div/div/div[2]",
     }
   );
 }
